@@ -1,0 +1,82 @@
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+AssetStoreTools*
+*.csproj
+*.unityproj
+*.sln
+*.userprefs
+*.pidb
+*.user
+*.booproj
+*.svd
+*.idea/
+*.vs/
+*.DS_Store
+*.swp
+*.tmp
+*.bak
+*.orig
+*.autosave
+
+# Exclude build artifacts
+Build/
+Builds/
+ExportedObj/
+*.apk
+*.unitypackage
+
+# Crash logs
+sysinfo.txt
+
+# Rider IDE
+.idea/
+.idea/*
+
+# Visual Studio
+.vs/
+*.dbmdl
+*.pdb
+*.opendb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.cache
+*.ide#
+*.ipr
+*.iws
+_ReSharper*/
+# Exclude auto-generated files
+Generated_Code/
+*.exe
+*.dll
+*.pyc
+
+# NuGet packages
+*.nupkg
+packages/
+!packages/*.dll
+
+# DotNet specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.log
+
+# Optional: JetBrains Rider specific caches
+.idea/
+
+# Backup files
+*.bak
+*.swp
+*.tmp
+
+# Ignore logs and temp files
+*.log
+*.temp
