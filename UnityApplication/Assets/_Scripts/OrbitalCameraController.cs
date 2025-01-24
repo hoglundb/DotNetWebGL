@@ -9,7 +9,8 @@ public class OrbitalCameraController : MonoBehaviour
     [SerializeField] private float minDistance = 2f;
     [SerializeField] private float maxDistance = 10f;
     [SerializeField] private float rotationDamping = 0.1f;
-    [SerializeField] private float initialYRotation = -45f; 
+    [SerializeField] private float initialYRotation = -45f;
+    [SerializeField] private float initialXRotation = 135f;
 
     [Header("Input Actions")]
     [Tooltip("Provides the mouse delta (change in mouse position). Used for both Orbit and Mouse Look.")]
@@ -33,7 +34,8 @@ public class OrbitalCameraController : MonoBehaviour
     {
         currentDistance = (minDistance + maxDistance) / 2f;
         yRotation = initialYRotation;
-        currentRotation = transform.rotation;
+        xRotation = initialXRotation;
+        currentRotation = Quaternion.Euler(yRotation, xRotation, 0);
     }
 
     private void OnEnable()
@@ -51,6 +53,7 @@ public class OrbitalCameraController : MonoBehaviour
 
         zoomActionReference.action.ReadValue<float>();
 
+        zoomInput = zoomActionReference.action.ReadValue<float>();
         if (zoomInput != 0)
         {
             currentDistance -= zoomInput * zoomSpeed * Time.deltaTime;
