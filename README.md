@@ -1,6 +1,6 @@
 ## Project Overview
 
-This project demonstrates **asynchronous asset loading** in a **Unity WebGL application** with a **.NET backend**. The goal is to dynamically load assets at runtime from a remote server, reducing initial load times and improving performance. You can clone the repository or visit [my portfolio](http://www.brianhoglundportfolio.com/) to see it in action.
+This project demonstrates **asynchronous asset loading** in a **Unity WebGL application** with a **.NET backend**. The goal is to dynamically load assets at runtime from a remote server, reducing initial load times and improving performance. This repository consists of both the Unity Editor application and the .Net Visual Studio project. You can clone the repository or view it in action on my site [here](http://www.brianhoglundportfolio.com/).
 
 ### Key Features:
 - **WebGL Deployment**: Unity WebGL game runs directly in the browser.
