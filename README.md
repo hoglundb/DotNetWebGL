@@ -42,7 +42,7 @@ public class AssetBundleBuilder : MonoBehaviour
 ```
 
 ### 2. Model Loader
-First we'll define a class for loading the asset bundles via a Unity web request. 
+Next we'll define a class for loading the asset bundles via a Unity web request. 
 ```csharp
 public class ModelLoader
 {
@@ -83,7 +83,7 @@ public class ModelLoader
 ```
 
 ### 3. Model Selector
-This class basically just makes a request to the model loader and to spawn the assets. It's critical for our development pipeline that we set this up in a way that makes this work in the following scenerios
+The Model Selector class basically just makes a request to the model loader and to spawn the assets. It's critical for our development pipeline that we set this up in a way that makes this work in the following scenerios
 
 - **Unity Editor**: Loads prefabs from the asset database.
 - **IIS Express**: Loads asset bundles over localhost.
