@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 1745722983
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: a10
+      Dependencies: {}
+    Info_1:
+      Name: ah64
+      Dependencies: {}
+    Info_2:
+      Name: b2
+      Dependencies: {}
+    Info_3:
+      Name: f35
+      Dependencies: {}
+    Info_4:
+      Name: missle
+      Dependencies: {}
+    Info_5:
+      Name: sr71
+      Dependencies: {}
+    Info_6:
+      Name: su57
+      Dependencies: {}
+    Info_7:
+      Name: tank
+      Dependencies: {}
+    Info_8:
+      Name: truck
+      Dependencies: {}

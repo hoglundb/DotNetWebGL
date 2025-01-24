@@ -1,0 +1,102 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>Unity WebGL Player | TestWebGLStuff</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
+</head>
+<body>
+    <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas" width="960" height="600"></canvas>
+        <div id="unity-loading-bar">
+            <div id="unity-logo"></div>
+            <div id="unity-progress-bar-empty">
+                <div id="unity-progress-bar-full"></div>
+            </div>
+        </div>
+        <div id="unity-warning"></div>
+        <div id="unity-footer">
+            <div id="unity-webgl-logo"></div>
+            <div id="unity-fullscreen-button"></div>
+            <div id="unity-build-title">TestWebGLStuff</div>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector("#unity-container");
+        const canvas = document.querySelector("#unity-canvas");
+        const loadingBar = document.querySelector("#unity-loading-bar");
+        const progressBarFull = document.querySelector("#unity-progress-bar-full");
+        const fullscreenButton = document.querySelector("#unity-fullscreen-button");
+        const warningBanner = document.querySelector("#unity-warning");
+
+        const MOBILE_WARNING = "WebGL builds are not supported on mobile devices.";
+
+        function unityShowBanner(msg, type = "info") {
+            const banner = document.createElement('div');
+            banner.textContent = msg;
+            banner.className = type === "error" ? "banner-error" : "banner-warning";
+            warningBanner.appendChild(banner);
+
+            if (type !== "error") {
+                setTimeout(() => {
+                    warningBanner.removeChild(banner);
+                }, 5000);
+            }
+        }
+
+        const buildUrl = "Build";
+        const config = {
+            dataUrl: `${buildUrl}/_WebPortfolioProject.data`,
+            frameworkUrl: `${buildUrl}/_WebPortfolioProject.framework.js`,
+            codeUrl: `${buildUrl}/_WebPortfolioProject.wasm`,
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "DefaultCompany",
+            productName: "WebPortfolioProject",
+            productVersion: "0.1.0",
+            showBanner: unityShowBanner,
+        };
+
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            container.classList.replace("unity-desktop", "unity-mobile");
+            canvas.classList.add("unity-mobile");
+            unityShowBanner(MOBILE_WARNING);
+        } else {
+            canvas.style.width = "960px";
+            canvas.style.height = "600px";
+        }
+
+        loadingBar.style.display = "block";
+
+        const script = document.createElement("script");
+        script.src = `${buildUrl}/_WebPortfolioProject.loader.js`;
+        script.onload = () => {
+            createUnityInstance(canvas, config, (progress) => {
+                progressBarFull.style.width = `${100 * progress}%`;
+            })
+                .then((unityInstance) => {
+                    loadingBar.style.display = "none";
+                    fullscreenButton.onclick = () => unityInstance.SetFullscreen(1);
+                })
+                .catch((err) => alert(err));
+        };
+        document.body.appendChild(script);
+    </script>
+    <style>
+        .banner-warning {
+            background-color: yellow;
+            padding: 10px;
+        }
+        .banner-error {
+            background-color: red;
+            padding: 10px;
+        }
+    </style>
+</body>
+</html>
