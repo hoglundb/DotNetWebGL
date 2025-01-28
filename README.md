@@ -137,12 +137,12 @@ private IEnumerator LoadAllModelsSequentially()
 
 When building the Unity WebGL project, you have the option to choose the compression method for your assets. Here, we are using Gzip as it is efficient and compresses files quickly.
 
-![alt text](WebGLBuildSettings-1.PNG) ![alt text](UnityBuildFiles-1.PNG)
+![alt text](./Images/WebGLBuildSettings.png)
 
 ## Visual Studio files setup
 Place the Unity WebGL build into the `wwwroot` folder of your Visual Studio project. Don’t forget to add the asset bundle files here as well.
 
-![alt text](FilesStuff-1.PNG)
+![alt text](./Images/UnityBuildInVS.png)
 
 ## Web server configuration
 Configure static file serving and compression in your `Startup.cs` file to serve assets and handle Gzip compression.
@@ -169,4 +169,4 @@ app.UseStaticFiles(new StaticFileOptions
 ### Deployment
 Once the project is built, deploy it to your web server. The web page will load first, followed by the asynchronous loading of assets. You can check it out here [http://www.brianhoglundportfolio.com](http://www.brianhoglundportfolio.com).
 
-![alt text](Capture-1.PNG)
+![alt text](./Images/DeployedSiteImage.png)
